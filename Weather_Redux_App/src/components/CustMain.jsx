@@ -105,12 +105,21 @@ function Main() {
 
   return (
     <>
+    <main>
+     {/* TITOLO */}
+        <div>
+            <h1 className="py-2">Che tempo fa in città?</h1>
+        </div>
+
+
        {/* NOME CITTA' */}
        <input
         type="text"
         className="cityInput"
         placeholder="Inserisci la città"
       />
+
+
       {/* ICONA */}
       <img
         src={Search_Icon}
@@ -121,6 +130,7 @@ function Main() {
         }}
       ></img>
 
+
       {/* DIV che contiene NOME della città e orario */}
       <div>
         <h1 className="weatherLocation">Monaco</h1>
@@ -128,8 +138,10 @@ function Main() {
           {moment().format("LL")}</p>
       </div>
       <Container>
+
+
         {/* ROW contenente ICONA e TEMPERATURA Corrente*/}
-         <Row className="background d-flex align-items-center justify-content-center my-2 py-1">
+         <Row className="background d-flex align-items-center justify-content-center my-2">
           <Col xs={6}>
             <div>
               <img src={wicon} alt=""></img>
@@ -139,20 +151,28 @@ function Main() {
             <p className="temp">47°C</p>
           </Col>
         </Row>
+
+
         {/* ROW con ICONA e DATi di Umidità e Vento */}
-        <Row className="d-flex align-items-center justify-content-center my-4">
-          <Col xs={4} className="background px-1 py-1 mx-1">
+        <Row className="d-flex align-items-center justify-content-center my-2">
+          <Col xs={4} className="background px-1 py-1 mx-1 my-2">
             <img src={Humidity_Icon} alt=""></img>
             <p className="humidityPercent">34%</p>
           </Col>
-          <Col xs={4} className="background px-1 py-1 mx-1">
+          <Col xs={4} className="background px-1 py-1 mx-1 my-2">
             <img src={Wind_Icon} alt=""></img>
             <p className="windRate">43.56 km/h</p>
           </Col>
         </Row>
+        </Container>
+        </main>
+
+        
         {/* ROW che contiene Previsioni della settimana con relative ICONE e DATI */}
-        <Row className='d-flex align-items-center justify-content-center my-3'>
-          <div className='my-2 border-bottom'>Previsioni della Settimana</div>
+        <Container>
+          <div className="Previsioni">
+        <Row className='d-flex align-items-center justify-content-center'>
+          <div className='my-2'><p className="border-bottom">Previsioni della Settimana</p></div>
           {forecastData.map((forecastDay, index) => (
             <Col className="background py-1 px-1 mx-1 my-1" key={index} xs={3}>
               <img className="next" src={getForecastIcon(forecastDay.weather[0].main)} alt=""></img>
@@ -160,6 +180,7 @@ function Main() {
             </Col>
           ))}
         </Row>
+        </div>
       </Container>
     </>
   );

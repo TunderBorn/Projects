@@ -3,8 +3,17 @@
   margin: 0 auto;
   padding: 2px;
   text-align: center;
-  background-color: rgb(0, 217, 255);
+ background-image: url('./Images/sfondo-1.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
   height: 100vh;
+}
+
+/* BackGround Previsione Corrente */
+main {
+  margin: 0px 10px 0px 10px;
+  background-color: rgba(189, 189, 189, 0.521);
+  border-radius: 5%;
 }
 
 /* ICONA di RICERCA */
@@ -17,7 +26,7 @@
   cursor: pointer;
 }
 
-/* GENERALE */
+/* DATA */
 #Data {
   margin: 0 auto;
   margin-top: 3px;
@@ -27,9 +36,11 @@
 /* ICONE e DATI */
 .background,
 .weatherLocation {
-  background-color: rgba(255, 136, 0, 0.507);
+  margin-left: 2px;
+  margin-right: 2px;
+  /* background-color: rgba(255, 136, 0, 0.788);
   background-size: cover;
-  border-radius: 20%;
+  border-radius: 20%; */
 }
 
 /* DATI CITTA' */
@@ -44,6 +55,16 @@
 .temp,.windRate,.humidityPercent {
   margin: 0 auto;
    font-size: 27px;
+}
+
+/* BackGround Previsione Corrente */
+.Previsioni {
+  background-color: rgba(189, 189, 189, 0.521);
+  border-radius: 5%;
+}
+
+.Previsioni p {
+  font-size: 27px;
 }
 
 /* ICONE GIORNI SUCCESSIVI */
