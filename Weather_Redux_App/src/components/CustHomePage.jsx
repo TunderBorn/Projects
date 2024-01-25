@@ -4,7 +4,7 @@ import Main from "./CustMain";
 const HomePage = ({page}) =>{
     return (
         <div>
-            <h1 className="py-2">Che tempo che fa?</h1>
+            <h1 className="py-2">Che tempo fa in città?</h1>
              <Main page={page}/>
         </div>
     )
