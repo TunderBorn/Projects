@@ -23,19 +23,23 @@ function Main() {
   // const dispatch = useDispatch();
   // const { currentWeather, forecastData } = useSelector((state) => state.weather);
 
+  // Funzione search per trovare il file API e prendere i dati
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
       return 0;
     }
 
+    // Link url dove viene modificato il nome della città se inserita
     let url = `https://api.openweathermap.org/data/2.5/forecast?q=${element[0].value}&units=Metric&APPID=${api_key}`;
     let response = await fetch(url);
     let data = await response.json();
 
+    // // REDUX
     // dispatch(updateWeather(data.list[0]));
     // dispatch(updateForecast(data.list.slice(1, 8))); // Prendi le previsioni per i successivi 7 giorni
-
+     
+    // Tutte le Variabili rese dinamiche
      const humidity = document.getElementsByClassName("humidityPercent");
      const wind = document.getElementsByClassName("windRate");
      const temperature = document.getElementsByClassName("temp");
@@ -101,11 +105,13 @@ function Main() {
 
   return (
     <>
+       {/* NOME CITTA' */}
        <input
         type="text"
         className="cityInput"
         placeholder="Inserisci la città"
       />
+      {/* ICONA */}
       <img
         src={Search_Icon}
         alt="Search Icon"
@@ -115,12 +121,14 @@ function Main() {
         }}
       ></img>
 
+      {/* DIV che contiene NOME della città e orario */}
       <div>
         <h1 className="weatherLocation">Monaco</h1>
         <p className="background" id="Data">{moment().format("dddd")}, <br />
           {moment().format("LL")}</p>
       </div>
       <Container>
+        {/* ROW contenente ICONA e TEMPERATURA Corrente*/}
          <Row className="background d-flex align-items-center justify-content-center my-2 py-1">
           <Col xs={6}>
             <div>
@@ -130,7 +138,8 @@ function Main() {
           <Col xs={6}>
             <p className="temp">47°C</p>
           </Col>
-        </Row> 
+        </Row>
+        {/* ROW con ICONA e DATi di Umidità e Vento */}
         <Row className="d-flex align-items-center justify-content-center my-4">
           <Col xs={4} className="background px-1 py-1 mx-1">
             <img src={Humidity_Icon} alt=""></img>
@@ -141,6 +150,7 @@ function Main() {
             <p className="windRate">43.56 km/h</p>
           </Col>
         </Row>
+        {/* ROW che contiene Previsioni della settimana con relative ICONE e DATI */}
         <Row className='d-flex align-items-center justify-content-center my-3'>
           <div className='my-2 border-bottom'>Previsioni della Settimana</div>
           {forecastData.map((forecastDay, index) => (
